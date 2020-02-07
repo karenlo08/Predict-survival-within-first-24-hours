@@ -1,101 +1,60 @@
 # Probability of patient's survival within first 24 hours of intensive care 
 
 ## Table of contents
-- [Goal]
-- [Exploratory Data Analysis]
-- [Data Preprocessing]
-- [Feature Selection]
-- [Machine Learning Models]
-
 - [Goal](#general-info)
-- [Exploratory Data Analysis](#technologies)
-- [Data Preprocessing](#hypotesis-testing)
+- [Workflow](#general-info)
 - [Feature Selection](#prediction-model)
 - [Machine Learning Models](#exploratory-data-analysis)
+- [Lessons learned](#exploratory-data-analysis)
 
 
 ## Goal
-The challenge is to create a model that uses data from the first 24 hours of intensive care to predict patient survival. GOSSIS community initiative, with privacy certification from the Harvard Privacy Lab, has provided a dataset of more than 130,000 hospital Intensive Care Unit (ICU) visits from patients, spanning a one-year timeframe. This data is part of a growing global effort and consortium spanning Argentina, Australia, New Zealand, Sri Lanka, Brazil, and more than 200 hospitals in the United States ro develop a new family of open source scoring systems for assessing the severity of illness of critical care patients internationally.
-
-differences in care systems and patient populations may translate the same score to very different outcomes. Put simply, an illness severity translates into different mortality risks depending on where the patient is located. 
-
+Create a model that uses data from the first 24 hours of intensive care to predict patient survival. GOSSIS community initiative has provided a dataset of more than 130,000 hospital Intensive Care Unit (ICU) visits from patients. This data is part of a growing global effort and consortium spanning Argentina, Australia, New Zealand, Sri Lanka, Brazil, and more than 200 hospitals in the United States to develop a new family of open source scoring systems for assessing the severity of illness of critical care patients internationally.
 
 Dataset Source: https://gossis.mit.edu/
 
+## Workflow
+<img src="/img/Screen Shot 2020-02-07 at 1.51.07 PM.png"/>
 
-## Exploratory Data Analysis
-
-## Data Preprocessing
-Identifying categorical and numerical features. Treating NaN with mean and one hot encoding.
-
-
-BMI = formula
-
-Ages with median?
-
-
-
-
-## Feature Selection
-Why?
-
-1.If we have more columns in the data than the number of rows, we will be able to fit our training data perfectly, but that won’t generalize to the new samples. And thus we learn absolutely nothing.
-
-2. Most of the times, we will have many non-informative features. For Example, Name or ID variables. Poor-quality input will produce Poor-Quality output.
+## Why Feature Selection?
+Although regularization helps constrain or shrinks our coefficient towards zero and help us to avoid overfitting;
+Most of the times, we will have many non-informative features where poor-quality input will produce poor-quality output.
 
 ### Pearson Correlation
 Between the target and numerical features in our dataset. 
 categorical features should be encoding to 0/1.
-
+```['d1_calcium_min', 'h1_diasbp_min', 'h1_inr_min', 'd1_inr_min', 'h1_diasbp_noninvasive_min', 'd1_wbc_max', 'd1_mbp_invasive_min', 'h1_lactate_max', 'd1_albumin_max', 'ph_apache', 'h1_lactate_min', 'fio2_apache', 'd1_sysbp_invasive_min', 'h1_mbp_min', 'albumin_apache', 'd1_inr_max', 'h1_inr_max', 'h1_mbp_noninvasive_min', 'h1_sysbp_min', 'h1_sysbp_noninvasive_min', 'temp_apache', 'd1_albumin_min', 'd1_hco3_min', 'd1_heartrate_max', 'bun_apache', 'intubated_apache_0.0', 'intubated_apache_1.0', 'd1_bun_min', 'd1_arterial_ph_min', 'd1_bun_max', 'd1_diasbp_noninvasive_min', 'd1_diasbp_min', 'gcs_eyes_apache_4', 'd1_mbp_noninvasive_min', 'd1_mbp_min', 'd1_temp_min', 'gcs_verbal_apache_5', 'd1_spo2_min', 'd1_sysbp_noninvasive_min', 'd1_sysbp_min', 'gcs_verbal_apache_1', 'ventilated_apache_1.0', 'ventilated_apache_0.0', 'gcs_motor_apache_6', 'gcs_motor_apache_1', 'gcs_eyes_apache_1', 'd1_lactate_max', 'apache_4a_icu_death_prob', 'd1_lactate_min', 'apache_4a_hospital_death_prob']
+```
 <img src="/img/corr.png"/>
 
+For Example:
 bun_apache: common blood test, the blood urea nitrogen (BUN) test reveals important information about how well your kidneys and liver are working
-
 intubated_apache	None	binary	Whether the patient was intubated at the time of the highest scoring arterial blood gas used in the oxygenation score
 
 
-what is apache II
-
-Several scoring systems have been developed to grade the severity of illness in critically ill patients. These systems are moderately accurate in predicting individual survival. However, these systems are more valuable for monitoring quality of care and for conducting research studies because they allow comparison of outcomes among groups of critically ill patients with similar illness severity.
-
-
+### What is apache II and apache III?
+Several scoring systems have been developed to grade the severity of illness in critically ill patients. These systems are moderately accurate in predicting individual survival.
 
 
 ### Chi-Squared
-higher the Chi-Square value the feature is more dependent on the response and it can be selected for model training.
-
-
-normalization of data
-
+Higher the Chi-Square value the feature is more dependent on the response and it can be selected for model training. Data should be normalize.
 sklearn.feature_selection.SelectKBest with chi2 as parameter.
 
-categorical response (y) and categorical predictors (x)
-The SelectKBest function with the chi2 test only works with categorical data. In fact, the result from the test only will have real meaning if the feature only has 1's and 0's.
-
-continuous response (y) and categorical predictor (x)
-f_classif (Analysis of variance/ ANOVA)
-
-### Recursive Feature Elimination (RFE)
-
 ```From sklearn Documentation:
-
 The goal of recursive feature elimination (RFE) is to select features by recursively considering smaller and smaller sets of features. First, the estimator is trained on the initial set of features and the importance of each feature is obtained either through a coef_ attribute or through a feature_importances_ attribute. Then, the least important features are pruned from current set of features. That procedure is recursively repeated on the pruned set until the desired number of features to select is eventually reached.
 ```
 
+### Recursive Feature Elimination (RFE)
+From sklearn Documentation:
+The goal of recursive feature elimination (RFE) is to select features by recursively considering smaller and smaller sets of features. First, the estimator is trained on the initial set of features and the importance of each feature is obtained either through a coef_ attribute or through a feature_importances_ attribute. Then, the least important features are pruned from current set of features. That procedure is recursively repeated on the pruned set until the desired number of features to select is eventually reached.
+
+
 ### Random Forest
-
-We can also use RandomForest to select features based on feature importance.
-
-We calculate feature importance using node impurities in each decision tree. In Random forest, the final feature importance is the average of all decision tree feature importance.
+We can also use RandomForest to select features based on feature importance. We calculate feature importance using node impurities in each decision tree. In Random forest, the final feature importance is the average of all decision tree feature importance.
 
 
 ##  Machine Learning Models
 
 
-```python
-def normalize(df,column):
-    cols_to_norm = [column,'Total_EV']
-    df[cols_to_norm] = StandardScaler().fit_transform(df[cols_to_norm])
-    return df
-```
-
+## Next steps
+Keep going with feature engineering and Gradient Boosting to make a better prediction.
