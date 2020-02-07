@@ -14,7 +14,7 @@ Create a model that uses data from the first 24 hours of intensive care to predi
 
 
 ### What is apache II and apache III?
-Several scoring systems have been developed to grade the severity of illness in critically ill patients. These systems are moderately accurate in predicting individual survival.
+The APACHE scoring systems have been developed to grade the severity of illness in critically ill patients. These systems are moderately accurate in predicting individual survival.
 
 ## Workflow
 <img src="/img/Screen Shot 2020-02-07 at 1.51.07 PM.png"/>
