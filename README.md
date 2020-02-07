@@ -5,7 +5,7 @@
 - [Workflow](#general-info)
 - [Feature Selection](#prediction-model)
 - [Machine Learning Models and Results](#exploratory-data-analysis)
-- [Lessons learned](#exploratory-data-analysis)
+- [Lessons learned and Next Steps](#exploratory-data-analysis)
 
 
 ## Goal
@@ -30,8 +30,8 @@ We check the absolute value of the Pearson’s correlation between the target an
 ```
 <img src="/img/corr.png"/>
 
-For Example:
-bun_apache: Common blood test, the blood urea nitrogen (BUN) test reveals important information about how well your kidneys and liver are working
+#####For Example:
+bun_apache: Common blood test, the blood urea nitrogen (BUN) test reveals important information about how well your kidneys and liver are working.
 intubated_apache: Whether the patient was intubated at the time of the highest scoring arterial blood gas used in the oxygenation score
 
 ### Chi-Squared
