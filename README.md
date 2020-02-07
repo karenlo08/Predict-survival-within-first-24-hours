@@ -30,9 +30,9 @@ We check the absolute value of the Pearson’s correlation between the target an
 ```
 <img src="/img/corr.png"/>
 
-| For Example:
-| *bun_apache: It's a common blood test, the blood urea nitrogen (BUN) test reveals important information about how well your   kidneys and liver are working.
-| intubated_apache: Whether the patient was intubated at the time of the highest scoring arterial blood test used in the oxygenation score*
+For Example:
+- *bun_apache: It's a common blood test, the blood urea nitrogen (BUN) test reveals important information about how well your   kidneys and liver are working.
+- intubated_apache: Whether the patient was intubated at the time of the highest scoring arterial blood test used in the oxygenation score*
 
 ### Chi-Squared
 Higher the Chi-Square value the feature is more dependent on the response and it can be selected for model training. Data should be normalize.
