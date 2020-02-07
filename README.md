@@ -7,6 +7,7 @@
 - [Machine Learning Models and Results](#exploratory-data-analysis)
 - [Lessons learned and Next Steps](#exploratory-data-analysis)
 
+<img src="/img/gossis_map.png"/>
 
 ## Goal
 Create a model that uses data from the first 24 hours of intensive care to predict patient survival. GOSSIS community initiative has provided a dataset of more than 130,000 hospital Intensive Care Unit (ICU) visits from patients. This data is part of a growing global effort and consortium spanning Argentina, Australia, New Zealand, Sri Lanka, Brazil, and more than 200 hospitals in the United States to develop a new family of open source scoring systems for assessing the severity of illness of critical care patients internationally.
@@ -30,9 +31,9 @@ We check the absolute value of the Pearson’s correlation between the target an
 ```
 <img src="/img/corr.png"/>
 
-For Example:
-- *bun_apache: It's a common blood test, the blood urea nitrogen (BUN) test reveals important information about how well your   kidneys and liver are working.
-- intubated_apache: Whether the patient was intubated at the time of the highest scoring arterial blood test used in the oxygenation score*
+*For Example:*
+- *bun_apache: It's a common blood test, the blood urea nitrogen (BUN) test reveals important information about how well your   kidneys and liver are working.*
+- *intubated_apache: Whether the patient was intubated at the time of the highest scoring arterial blood test used in the oxygenation score*
 
 ### Chi-Squared
 Higher the Chi-Square value the feature is more dependent on the response and it can be selected for model training. Data should be normalize.
