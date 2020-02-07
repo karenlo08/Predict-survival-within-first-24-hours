@@ -50,5 +50,6 @@ sklearn.feature_selection.SelectKBest with chi2 as parameter.
 ### Analysis on Results
 <img src="/img/apache_3j_bodysystem_plot.png"/>
 
-## Next steps
+## Next steps and Lessons learnt
+Try Grid Search with one hyperparamter at a time.
 Keep going with feature engineering and Gradient Boosting to make a better prediction.
