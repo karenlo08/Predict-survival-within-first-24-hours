@@ -1,4 +1,4 @@
-# Probability of patient's survival within first 24 hours of intensive care 
+# Prediction of patient survival within first 24 hours of intensive care 
 
 ## Table of contents
 - [Goal](#general-info)
