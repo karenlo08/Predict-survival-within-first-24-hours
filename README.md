@@ -7,12 +7,18 @@
 - [Feature Selection]
 - [Machine Learning Models]
 
+- [Goal](#general-info)
+- [Exploratory Data Analysis](#technologies)
+- [Data Preprocessing](#hypotesis-testing)
+- [Feature Selection](#prediction-model)
+- [Machine Learning Models](#exploratory-data-analysis)
+
+
 ## Goal
 The challenge is to create a model that uses data from the first 24 hours of intensive care to predict patient survival. GOSSIS community initiative, with privacy certification from the Harvard Privacy Lab, has provided a dataset of more than 130,000 hospital Intensive Care Unit (ICU) visits from patients, spanning a one-year timeframe. This data is part of a growing global effort and consortium spanning Argentina, Australia, New Zealand, Sri Lanka, Brazil, and more than 200 hospitals in the United States ro develop a new family of open source scoring systems for assessing the severity of illness of critical care patients internationally.
 
 differences in care systems and patient populations may translate the same score to very different outcomes. Put simply, an illness severity translates into different mortality risks depending on where the patient is located. 
 
-They have distinct scoring methods and want to find the best ones to predict survival
 
 Dataset Source: https://gossis.mit.edu/
 
@@ -42,6 +48,18 @@ Between the target and numerical features in our dataset.
 categorical features should be encoding to 0/1.
 
 <img src="/img/corr.png"/>
+
+bun_apache: common blood test, the blood urea nitrogen (BUN) test reveals important information about how well your kidneys and liver are working
+
+intubated_apache	None	binary	Whether the patient was intubated at the time of the highest scoring arterial blood gas used in the oxygenation score
+
+
+what is apache II
+
+Several scoring systems have been developed to grade the severity of illness in critically ill patients. These systems are moderately accurate in predicting individual survival. However, these systems are more valuable for monitoring quality of care and for conducting research studies because they allow comparison of outcomes among groups of critically ill patients with similar illness severity.
+
+
+
 
 ### Chi-Squared
 higher the Chi-Square value the feature is more dependent on the response and it can be selected for model training.
