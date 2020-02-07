@@ -40,7 +40,6 @@ sklearn.feature_selection.SelectKBest with chi2 as parameter.
 ```
 ['elective_surgery', 'apache_2_diagnosis', 'apache_post_operative', 'bun_apache', 'd1_diasbp_min', 'd1_diasbp_noninvasive_min', 'd1_heartrate_max', 'd1_mbp_min', 'd1_mbp_noninvasive_min', 'd1_sysbp_min', 'd1_sysbp_noninvasive_min', 'h1_sysbp_min', 'd1_bun_max', 'd1_bun_min', 'd1_creatinine_max', 'd1_lactate_max', 'd1_lactate_min', 'apache_4a_hospital_death_prob', 'apache_4a_icu_death_prob', 'gcs_eyes_apache_0', 'gcs_eyes_apache_1', 'gcs_eyes_apache_2', 'gcs_eyes_apache_4', 'gcs_motor_apache_0', 'gcs_motor_apache_1', 'gcs_motor_apache_2', 'gcs_motor_apache_3', 'gcs_motor_apache_4', 'gcs_motor_apache_5', 'gcs_motor_apache_6', 'gcs_verbal_apache_0', 'gcs_verbal_apache_1', 'gcs_verbal_apache_5', 'gcs_unable_apache_1.0', 'intubated_apache_0.0', 'intubated_apache_1.0', 'ventilated_apache_0.0', 'ventilated_apache_1.0', 'immunosuppression_1.0', 'solid_tumor_with_metastasis_1.0', 'hospital_admit_source_Floor', 'hospital_admit_source_Operating Room', 'hospital_admit_source_Step-Down Unit (SDU)', 'icu_admit_source_Floor', 'icu_admit_source_Operating Room / Recovery', 'apache_3j_bodysystem_Metabolic', 'apache_3j_bodysystem_Sepsis', 'apache_2_bodysystem_Cardiovascular', 'apache_2_bodysystem_Metabolic', 'apache_2_bodysystem_Undefined diagnoses']
 ```
-
 <img src="/img/select k_best_f_classif.png"/>
 
 ##  Machine Learning Models 
@@ -49,6 +48,7 @@ sklearn.feature_selection.SelectKBest with chi2 as parameter.
 
 ### Analysis on Results
 <img src="/img/apache_3j_bodysystem_plot.png"/>
+*apache_3j_bodysystem: Admission diagnosis group for APACHE III*
 
 ## Next steps and Lessons learnt
 Try Grid Search with one hyperparamter at a time.
