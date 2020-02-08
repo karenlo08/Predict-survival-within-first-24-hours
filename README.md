@@ -42,6 +42,18 @@ sklearn.feature_selection.SelectKBest with chi2 as parameter.
 ```
 <img src="/img/select k_best_f_classif.png"/>
 
+### Recursive Feature Elimination (RFE)
+*From sklearn Documentation:
+
+The goal of recursive feature elimination (RFE) is to select features by recursively considering smaller and smaller sets of features. First, the estimator is trained on the initial set of features and the importance of each feature is obtained either through a coef_ attribute or through a feature_importances_ attribute. Then, the least important features are pruned from current set of features. That procedure is recursively repeated on the pruned set until the desired number of features to select is eventually reached.*
+
+### Tree-based
+We can also use RandomForest to select features based on feature importance.
+We calculate feature importance using node impurities in each decision tree. In Random forest, the final feature importance is the average of all decision tree feature importance.
+
+### Chossing our best features from our feature selection techniques
+<img src="/img/k.png"/>
+
 ##  Machine Learning Models 
 <img src="/img/roc.png"/>
 <img src="/img/confussion_matrix_first_features.png"/>
