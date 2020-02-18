@@ -51,7 +51,7 @@ sklearn.feature_selection.SelectKBest with chi2 as parameter.
 We can also use RandomForest to select features based on feature importance.
 We calculate feature importance using node impurities in each decision tree. In Random forest, the final feature importance is the average of all decision tree feature importance.
 
-### Chossing our best features from our feature selection techniques
+## Chossing our best features from our feature selection techniques
 <img src="/img/o.png"/>
 
 ##  Machine Learning Models 
